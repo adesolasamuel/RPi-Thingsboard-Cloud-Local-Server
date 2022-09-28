@@ -107,3 +107,31 @@ Add the following lines to the configuration file
 # Update ThingsBoard memory usage and restrict it to 256MB in /etc/thingsboard/conf/thingsboard.conf
 export JAVA_OPTS="$JAVA_OPTS -Xms256M -Xmx256M"
 ```
+
+## Step 7. Run installation script
+Once ThingsBoard service is installed and DB configuration is updated, you can execute the following script and wait till it finish, this might take a couple of seconds:
+```
+# --loadDemo option will load demo data: users, devices, assets, rules, widgets.
+sudo /usr/share/thingsboard/bin/install/install.sh --loadDemo
+```
+
+## Step 8. Start ThingsBoard service
+Execute the following command to start ThingsBoard:
+
+```
+sudo service thingsboard start
+```
+
+Once started, you will be able to open Web UI using the following link:
+```
+http://localhost:8080/
+```
+
+The following default credentials are available if you have specified –loadDemo during execution of the installation script:
+
+**System Administrator:** sysadmin@thingsboard.org / sysadmin
+**Tenant Administrator:** tenant@thingsboard.org / tenant
+**Customer User:** customer@thingsboard.org / customer
+You can always change passwords for each account in account profile page.
+
+For you to be setting up a device in the server, you need to login in as a tenant.
